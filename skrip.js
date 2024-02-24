@@ -128,9 +128,9 @@ window.addEventListener('load', function () {
   }
 
   function updateScore() {
-    const sessionAttemptsValue = parseInt(
-      sessionStorage.getItem(sessionUserAttemptsKey)
-    );
+    const sessionAttemptsValue = 
+      parseInt(sessionStorage.getItem(sessionUserAttemptsKey)
+      );
     const localAttemptsValue = parseInt(
       localStorage.getItem(localMaximumAttemptsKey)
     );
@@ -153,5 +153,14 @@ window.addEventListener('load', function () {
     sessionUserAttemptsField.innerText = sessionStorage.getItem(
       sessionUserAttemptsKey
     );
+  });
+
+  destroyDataButton.addEventListener('click', function() {
+    sessionStorage.removeItem(sessionAnswerKey);
+    sessionStorage.removeItem(sessionUserAttemptsKey);
+    sessionStorage.removeItem(sessionUserIsPlayingKey);
+    localStorage.removeItem(localTotalVictoryKey);
+    localStorage.removeItem(localMaximumAttemptsKey);
+    alert('mohon merefresh halaman ini kembali');
   });
 });
